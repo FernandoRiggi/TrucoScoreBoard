@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TrucoScoreBoard</string>
+    <string name="_1_point">+1 point</string>
+    <string name="team_a_points">Team A points!</string>
+    <string name="us">US</string>
+</resources>
