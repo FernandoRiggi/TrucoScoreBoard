@@ -45,4 +45,40 @@
         app:layout_constraintStart_toStartOf="@id/us_points_tv"
         app:layout_constraintEnd_toEndOf="@id/us_points_tv"
         app:layout_constraintTop_toBottomOf="@id/us_points_tv" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/_80_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80"/>
+
+    <TextView
+        android:id="@+id/them_points_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/them"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@id/_80_gl"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/them_points_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="@id/them_points_label_tv"
+        app:layout_constraintEnd_toEndOf="@id/them_points_label_tv"
+        app:layout_constraintTop_toBottomOf="@id/them_points_label_tv"/>
+
+    <Button
+        android:id="@+id/them_point_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+1"
+        app:layout_constraintStart_toStartOf="@id/them_points_tv"
+        app:layout_constraintEnd_toEndOf="@id/them_points_tv"
+        app:layout_constraintTop_toBottomOf="@id/them_points_tv"/>
+
   </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,6 @@
     <string name="_1_point">+1 point</string>
     <string name="team_a_points">Team A points!</string>
     <string name="us">US</string>
+    <string name="truco">Truco</string>
+    <string name="them">THEM</string>
 </resources>
