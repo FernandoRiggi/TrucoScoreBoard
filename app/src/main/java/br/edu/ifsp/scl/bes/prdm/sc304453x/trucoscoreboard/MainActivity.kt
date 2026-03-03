@@ -2,10 +2,8 @@ package br.edu.ifsp.scl.bes.prdm.sc304453x.trucoscoreboard
 
 import android.os.Bundle
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import br.edu.ifsp.scl.bes.prdm.sc304453x.trucoscoreboard.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,11 +18,11 @@ class MainActivity : AppCompatActivity() {
     private var themScore = 0
 
     private var roundValue = RoundValue.ONE
+    private var gameState = GameState.NORMAL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activityMainBinding.root)
-
 
         updateRoundValue()
 
@@ -33,7 +31,9 @@ class MainActivity : AppCompatActivity() {
 
             usScore = addPoints(usScore)
             updateScore(activityMainBinding.usPointsTv, usScore)
+
             checkWinner()
+            checkHandOfEleven()
         }
 
         activityMainBinding.themPointBt.setOnClickListener {
@@ -41,7 +41,9 @@ class MainActivity : AppCompatActivity() {
 
             themScore = addPoints(themScore)
             updateScore(activityMainBinding.themPointsTv, themScore)
+
             checkWinner()
+            checkHandOfEleven()
         }
 
         activityMainBinding.trucoBt.setOnClickListener {
@@ -58,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         updateRoundValue()
         return newScore
     }
+
     private fun updateScore(textView: TextView, score: Int) {
         textView.text = score.toString()
     }
@@ -91,5 +94,55 @@ class MainActivity : AppCompatActivity() {
                 disableGameButtons()
             }
         }
+    }
+
+    private fun checkHandOfEleven() {
+        if (gameFinished()) return
+
+        if (usScore == 11 && themScore < 11) {
+            gameState = GameState.HAND_OF_ELEVEN
+            showHandOfElevenDialog(isUs = true)
+        }
+
+        if (themScore == 11 && usScore < 11) {
+            gameState = GameState.HAND_OF_ELEVEN
+            showHandOfElevenDialog(isUs = false)
+        }
+    }
+
+    private fun showHandOfElevenDialog(isUs: Boolean) {
+        AlertDialog.Builder(this)
+            .setTitle("Mão de 11")
+            .setMessage("Deseja jogar ou correr?")
+            .setCancelable(false)
+            .setPositiveButton("Jogar") { _, _ ->
+                resolveHandOfEleven(play = true)
+            }
+            .setNegativeButton("Correr") { _, _ ->
+                resolveHandOfEleven(play = false)
+            }
+            .show()
+    }
+
+    private fun resolveHandOfEleven(play: Boolean) {
+        if (gameState != GameState.HAND_OF_ELEVEN) return
+
+        if (play) {
+            roundValue = RoundValue.THREE
+            updateRoundValue()
+        } else {
+            if (usScore == 11) {
+                themScore += 1
+                updateScore(activityMainBinding.themPointsTv, themScore)
+            } else {
+                usScore += 1
+                updateScore(activityMainBinding.usPointsTv, usScore)
+            }
+
+            checkWinner()
+            checkHandOfEleven()
+        }
+
+        gameState = GameState.HAND_OF_ELEVEN
     }
 }
