@@ -25,25 +25,71 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(activityMainBinding.root)
 
+
+        updateRoundValue()
+
         activityMainBinding.usPointBt.setOnClickListener {
-            if (usScore < target) {
-                usScore = addPoints(usScore)
-                updateScore(activityMainBinding.usPointsTv, usScore)
-            }
+            if (gameFinished()) return@setOnClickListener
+
+            usScore = addPoints(usScore)
+            updateScore(activityMainBinding.usPointsTv, usScore)
+            checkWinner()
         }
 
         activityMainBinding.themPointBt.setOnClickListener {
-            if (themScore < target) {
-                themScore = addPoints(themScore)
-                updateScore(activityMainBinding.themPointsTv, themScore)
-            }
+            if (gameFinished()) return@setOnClickListener
+
+            themScore = addPoints(themScore)
+            updateScore(activityMainBinding.themPointsTv, themScore)
+            checkWinner()
+        }
+
+        activityMainBinding.trucoBt.setOnClickListener {
+            if (gameFinished()) return@setOnClickListener
+
+            roundValue = roundValue.next()
+            updateRoundValue()
         }
     }
 
     private fun addPoints(currentScore: Int): Int {
-        return currentScore + roundValue.points
+        val newScore = currentScore + roundValue.points
+        roundValue = RoundValue.ONE
+        updateRoundValue()
+        return newScore
     }
     private fun updateScore(textView: TextView, score: Int) {
         textView.text = score.toString()
+    }
+
+    private fun updateRoundValue() {
+        activityMainBinding.roundValueTv.text = buildString {
+            append("Valendo: ")
+            append(roundValue.points)
+            append(" pontos")
+        }
+    }
+
+    private fun gameFinished(): Boolean {
+        return usScore >= target || themScore >= target
+    }
+
+    private fun disableGameButtons() {
+        activityMainBinding.usPointBt.isEnabled = false
+        activityMainBinding.themPointBt.isEnabled = false
+        activityMainBinding.trucoBt.isEnabled = false
+    }
+
+    private fun checkWinner() {
+        when {
+            usScore >= target -> {
+                activityMainBinding.roundValueTv.text = "Nós vencemos!"
+                disableGameButtons()
+            }
+            themScore >= target -> {
+                activityMainBinding.roundValueTv.text = "Eles venceram!"
+                disableGameButtons()
+            }
+        }
     }
 }
