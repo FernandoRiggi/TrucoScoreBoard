@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/us"
+        android:textSize="@dimen/label_text"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="@id/gl20"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -29,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textSize="40sp"
+        android:textSize="@dimen/score_text"
         android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="@id/us_points_label_tv"
         app:layout_constraintEnd_toEndOf="@id/us_points_label_tv"
@@ -38,10 +39,11 @@
 
     <Button
         android:id="@+id/us_point_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:layout_marginHorizontal="5dp"
         android:text="+1"
+        android:textSize="@dimen/button_text"
         app:layout_constraintStart_toStartOf="@id/us_points_tv"
         app:layout_constraintEnd_toEndOf="@id/us_points_tv"
         app:layout_constraintTop_toBottomOf="@id/us_points_tv" />
@@ -58,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/them"
+        android:textSize="@dimen/label_text"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="@id/gl80"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -67,18 +70,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textSize="40sp"
+        android:textSize="@dimen/score_text"
         app:layout_constraintStart_toStartOf="@id/them_points_label_tv"
         app:layout_constraintEnd_toEndOf="@id/them_points_label_tv"
         app:layout_constraintTop_toBottomOf="@id/them_points_label_tv"/>
 
     <Button
         android:id="@+id/them_point_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:text="+1"
+        android:textSize="@dimen/button_text"
         app:layout_constraintStart_toStartOf="@id/them_points_tv"
         app:layout_constraintEnd_toEndOf="@id/them_points_tv"
         app:layout_constraintTop_toBottomOf="@id/them_points_tv"/>
 
+
+    <Button
+        android:id="@+id/truco_bt"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/truco"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/them_point_bt"
+        app:layout_constraintEnd_toStartOf="@id/them_point_bt"
+        app:layout_constraintStart_toEndOf="@id/us_point_bt"/>
   </androidx.constraintlayout.widget.ConstraintLayout>
