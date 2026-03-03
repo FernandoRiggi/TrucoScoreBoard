@@ -45,6 +45,12 @@ class MainActivity : AppCompatActivity() {
             game.callTruco()
             updateUI()
         }
+
+        activityMainBinding.resetBt.setOnClickListener {
+            game.resetGame()
+            enableGameButtons()
+            updateUI()
+        }
     }
 
     private fun updateUI() {
@@ -72,6 +78,11 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.trucoBt.isEnabled = false
     }
 
+    private fun enableGameButtons() {
+        activityMainBinding.usPointBt.isEnabled = true
+        activityMainBinding.themPointBt.isEnabled = true
+        activityMainBinding.trucoBt.isEnabled = true
+    }
     private fun showHandOfElevenDialog() {
         AlertDialog.Builder(this)
             .setTitle("Mão de 11")

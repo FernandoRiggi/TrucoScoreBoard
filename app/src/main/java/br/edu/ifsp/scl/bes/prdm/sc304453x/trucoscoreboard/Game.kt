@@ -42,7 +42,12 @@ class Game(private val target: Int = 12) {
 
         roundValue = RoundValue.THREE
         state = GameState.NORMAL
+    }
 
+    fun resetGame() {
+        usScore = 0
+        themScore = 0
+        state = GameState.NORMAL
     }
 
     private fun endRound() {
