@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private val target = 12
 
     private var usScore = 0
+    private var themScore = 0
 
     private var roundValue = RoundValue.ONE
 
@@ -29,7 +30,15 @@ class MainActivity : AppCompatActivity() {
                 usScore = addPoints(usScore)
                 updateScore(activityMainBinding.usPointsTv, usScore)
             }
-        } }
+        }
+
+        activityMainBinding.themPointBt.setOnClickListener {
+            if (themScore < target) {
+                themScore = addPoints(themScore)
+                updateScore(activityMainBinding.themPointsTv, themScore)
+            }
+        }
+    }
 
     private fun addPoints(currentScore: Int): Int {
         return currentScore + roundValue.points

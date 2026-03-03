@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/_20_gl"
+        android:id="@+id/gl20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="@string/us"
         android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="@id/_20_gl"
+        app:layout_constraintStart_toStartOf="@id/gl20"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/us_points_tv" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/_80_gl"
+        android:id="@+id/gl80"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:text="@string/them"
         android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="@id/_80_gl"
+        app:layout_constraintEnd_toEndOf="@id/gl80"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
