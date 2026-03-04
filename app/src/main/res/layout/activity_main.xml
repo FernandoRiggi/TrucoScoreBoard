@@ -6,6 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -21,9 +22,12 @@
         android:layout_height="wrap_content"
         android:text="@string/us"
         android:textSize="@dimen/label_text"
+        android:textColor="#ffffff"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="@id/gl20"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        />
 
     <TextView
         android:id="@+id/us_points_tv"
@@ -31,7 +35,8 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="@dimen/score_text"
-        android:gravity="center_horizontal"
+        android:textColor="#ffffff"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="@id/us_points_label_tv"
         app:layout_constraintEnd_toEndOf="@id/us_points_label_tv"
         app:layout_constraintTop_toBottomOf="@id/us_points_label_tv"
@@ -41,9 +46,10 @@
         android:id="@+id/us_point_bt"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_marginHorizontal="5dp"
         android:text="+1"
         android:textSize="@dimen/button_text"
+        android:textColor="#ffffff"
+        android:background="@drawable/button_selector"
         app:layout_constraintStart_toStartOf="@id/us_points_tv"
         app:layout_constraintEnd_toEndOf="@id/us_points_tv"
         app:layout_constraintTop_toBottomOf="@id/us_points_tv" />
@@ -61,6 +67,7 @@
         android:layout_height="wrap_content"
         android:text="@string/them"
         android:textSize="@dimen/label_text"
+        android:textColor="#ffffff"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="@id/gl80"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -71,6 +78,8 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="@dimen/score_text"
+        android:textColor="#ffffff"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="@id/them_points_label_tv"
         app:layout_constraintEnd_toEndOf="@id/them_points_label_tv"
         app:layout_constraintTop_toBottomOf="@id/them_points_label_tv"/>
@@ -79,11 +88,13 @@
         android:id="@+id/them_point_bt"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
+        android:background="@drawable/button_selector"
         android:text="+1"
+        android:textColor="#ffffff"
         android:textSize="@dimen/button_text"
-        app:layout_constraintStart_toStartOf="@id/them_points_tv"
         app:layout_constraintEnd_toEndOf="@id/them_points_tv"
-        app:layout_constraintTop_toBottomOf="@id/them_points_tv"/>
+        app:layout_constraintStart_toStartOf="@id/them_points_tv"
+        app:layout_constraintTop_toBottomOf="@id/them_points_tv" />
 
     <Button
         android:id="@+id/truco_bt"
@@ -91,6 +102,8 @@
         android:layout_height="wrap_content"
         android:text="@string/truco"
         android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/button_selector"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/round_value_tv"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,6 +116,7 @@
         android:text="Valendo: 1"
         android:textSize="20sp"
         android:gravity="center"
+        android:textColor="#ffffff"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/us_point_bt"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +128,8 @@
         android:layout_height="wrap_content"
         android:text="@string/resetar"
         android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/button_selector"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/truco_bt"
         app:layout_constraintStart_toStartOf="parent"
