@@ -6,6 +6,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:paddingTop="24dp"
+    android:clipToPadding="false"
     android:background="@drawable/background_gradient"
     tools:context=".MainActivity">
 
@@ -20,7 +23,7 @@
         android:id="@+id/us_points_label_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/us"
+        android:text="@string/nos"
         android:textSize="@dimen/label_text"
         android:textColor="#ffffff"
         android:layout_marginTop="30dp"
@@ -65,7 +68,7 @@
         android:id="@+id/them_points_label_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/them"
+        android:text="@string/eles"
         android:textSize="@dimen/label_text"
         android:textColor="#ffffff"
         android:layout_marginTop="30dp"
